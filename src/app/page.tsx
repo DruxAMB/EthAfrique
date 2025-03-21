@@ -4,6 +4,7 @@ import { cn } from "./lib/utils";
 import { Button } from "./components/ui/button";
 import { Play } from "lucide-react";
 import Testimonials from '../../public/images/testimonials.png'
+import contentImg from '../../public/images/content-image.png'
 
 
 export default function Home() {
@@ -82,7 +83,7 @@ export default function Home() {
           </div>
         </div>
         {/* write up section */}
-        <div className="flex flex-col md:flex-row items-center justify-between m-5 md:m-10 b">
+        <div className="flex flex-col md:flex-row items-center justify-between m-5 md:m-10">
           <div className="text-start w-full md:w-[50%] p-2 md:p-5">
             <p className="text-justify my-5 leading-8 ">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean scelerisque gravida tempus. Pellentesque odio purus, dapibus ut rutrum at, mollis sit amet eros. Nulla non tortor nec elit lacinia consectetur.</p>
             <p className="text-justify my-5 leading-8">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean scelerisque gravida tempus. Pellentesque odio purus, dapibus ut rutrum at, mollis sit amet eros. Nulla non tortor nec elit lacinia consectetur.</p>
@@ -144,7 +145,47 @@ export default function Home() {
             Devenir Sponsor
           </Button>
         </div>
+      </section>
 
+      <section className="relative p-1 md:p5 overflow-hidden max-w-[90%] m-auto">
+        <h2 className="text-2xl md:text-4xl font-bold mb-6 text-start">
+          À Propos
+        </h2>
+
+        <div className="rounded-3xl ">
+            <Image src={contentImg} 
+              alt="content"
+              width={1920}
+              height={1080}
+            className="object-cover"
+            />
+        </div>
+
+        <div className="flex flex-col md:flex-row items-center justify-between m-5 md:m-10">
+          <div className="text-start w-full md:w-[45%] p-2 md:p-5">
+            <p className="text-justify my-5 leading-8 ">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean scelerisque gravida tempus. Pellentesque odio purus, dapibus ut rutrum at, mollis sit amet eros. Nulla non tortor nec elit lacinia consectetur.</p>
+            <p className="text-justify my-5 leading-8">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean scelerisque gravida tempus. Pellentesque odio purus, dapibus ut rutrum at, mollis sit amet eros. Nulla non tortor nec elit lacinia consectetur.</p>
+            <p className="text-justify my-5 leading-8 ">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean scelerisque gravida tempus. Pellentesque odio purus, dapibus ut rutrum at, mollis sit amet eros. Nulla non tortor nec elit lacinia consectetur.</p>
+            <p className="text-justify my-5 leading-8">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean scelerisque gravida tempus. Pellentesque odio purus, dapibus ut rutrum at, mollis sit amet eros. Nulla non tortor nec elit lacinia consectetur.</p>
+
+            <div className="rounded-xl bg-[#0f2757] px-5 py-10">
+              <h2 className="text-2xl md:4xl font-bold">Mission</h2>
+              <p className="my-5 leading-10 text-justify">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean scelerisque gravida tempus. Pellentesque odio purus, dapibus ut rutrum at, mollis sit amet eros. Nulla non tortor nec elit lacinia consectetur.</p>
+            </div>
+          </div>
+
+          <div className="text-start w-full md:w-[45%] p-2 md:p-5">
+            <p className="text-justify my-5 leading-8 ">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean scelerisque gravida tempus. Pellentesque odio purus, dapibus ut rutrum at, mollis sit amet eros. Nulla non tortor nec elit lacinia consectetur.</p>
+            <p className="text-justify my-5 leading-8">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean scelerisque gravida tempus. Pellentesque odio purus, dapibus ut rutrum at, mollis sit amet eros. Nulla non tortor nec elit lacinia consectetur.</p>
+            <p className="text-justify my-5 leading-8 ">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean scelerisque gravida tempus. Pellentesque odio purus, dapibus ut rutrum at, mollis sit amet eros. Nulla non tortor nec elit lacinia consectetur.</p>
+            <p className="text-justify my-5 leading-8">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean scelerisque gravida tempus. Pellentesque odio purus, dapibus ut rutrum at, mollis sit amet eros. Nulla non tortor nec elit lacinia consectetur.</p>
+
+            <div className="rounded-xl bg-[#0f2757] px-5 py-10">
+              <h2 className="text-2xl md:4xl font-bold">Mission</h2>
+              <p className="my-5 leading-10 text-justify">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean scelerisque gravida tempus. Pellentesque odio purus, dapibus ut rutrum at, mollis sit amet eros. Nulla non tortor nec elit lacinia consectetur.</p>
+            </div>
+          </div>
+        </div>
       </section>
 
       
