@@ -15,12 +15,12 @@ const Navbar = () => {
 
   // Array of navigation links
   const navLinks = [
-    { href: '/a-propos', label: 'À Propos' },
-    { href: '/programme', label: 'Programme' },
-    { href: '/partenaires', label: 'Partenaires' },
-    { href: '/inscriptions-et-billetterie', label: 'Inscriptions et Billetterie' },
-    { href: '/faq', label: 'FAQs' },
-    { href: '/contact', label: 'Contact' },
+    { href: '#apropos', label: 'À Propos' },
+    { href: '#programme', label: 'Programme' },
+    { href: '#partenaires', label: 'Partenaires' },
+    { href: '#inscriptions', label: 'Inscriptions et Billetterie' },
+    { href: '#faqs', label: 'FAQs' },
+    { href: '#contact', label: 'Contact' },
   ];
 
   useEffect(() => {

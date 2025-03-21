@@ -12,6 +12,13 @@ import rightArrow from '../../public/images/right-arrow.svg'
 import leftArrow from '../../public/images/left-arrow.svg'
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "./components/ui/accordion";
 import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from "./components/ui/card";
+import { useForm } from "react-hook-form";
+import { Form, FormControl, FormField, FormItem, FormLabel, FormMessage } from "./components/ui/form";
+import { Input } from "./components/ui/input";
+import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "./components/ui/select";
+import { RadioGroup, RadioGroupItem } from "./components/ui/radio-group";
+import { Checkbox } from "./components/ui/checkbox";
+import { Textarea } from "./components/ui/textarea";
 
 
 
@@ -138,6 +145,24 @@ export default function Home() {
     (currentSpeakerPage + 1) * speakersPerPage
   );
 
+  const form = useForm({
+    defaultValues: {
+      firstName: "",
+      lastName: "",
+      email: "",
+      phone: "",
+      subject: "",
+      description: "",
+      message: "",
+      terms: false
+    }
+  });
+
+  const onSubmit = (data: any) => {
+    console.log(data);
+    // Handle form submission
+  };
+
   return (
     <div className="bg-[#06286F] min-h-screen">
       {/* Hero Section */}
@@ -225,7 +250,7 @@ export default function Home() {
       </section>
 
       {/* partners section */}
-      <section className="relative p-5 overflow-hidden max-w-[90%] m-auto">
+      <section className="relative p-5 overflow-hidden max-w-[90%] m-auto" id="partenaires">
         <h2 className="text-2xl md:text-4xl font-bold mb-6 text-center">
           Sponsors et Partenaires Confirmés
         </h2>
@@ -270,7 +295,7 @@ export default function Home() {
         </div>
       </section>
 
-      <section className="relative p-1 md:p5 overflow-hidden max-w-[90%] m-auto">
+      <section className="relative p-1 md:p5 overflow-hidden max-w-[90%] m-auto" id="apropos">
         <h2 className="text-2xl md:text-4xl font-bold mb-6 text-start">
           À Propos
         </h2>
@@ -312,7 +337,7 @@ export default function Home() {
       </section>
 
       {/* timeline section */}
-      <section className="relative p-1 md:p5 overflow-hidden max-w-[90%] m-auto my-10">
+      <section className="relative p-1 md:p5 overflow-hidden max-w-[90%] m-auto my-10" id="programme">
         <h2 className="text-2xl md:text-4xl font-bold mb-16 text-center">Programme (Agenda/Schedule)</h2>
 
         {/* timeline map */}
@@ -433,7 +458,7 @@ export default function Home() {
           Pourquoi Sponsoriser ?
         </h2>
 
-        <div className="max-w-4xl mx-auto text-center mb-20">
+        <div className="max-w-7xl mx-auto text-center mb-20">
           <p className="text-gray-300 mb-8">
             Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean scelerisque gravida tempus. Pellentesque odio purus, dapibus
             ut rutrum at, mollis sit amet eros. Nulla non tortor nec elit lacinia consectetur. Lorem ipsum dolor sit amet, consectetur
@@ -496,7 +521,7 @@ export default function Home() {
       </section>
 
       {/* tickets section */}
-      <section className="relative p-1 md:p5 overflow-hidden max-w-[90%] mx-auto my-20">
+      <section className="relative p-1 md:p5 overflow-hidden max-w-[90%] mx-auto my-20" id="inscriptions">
         <h2 className="text-2xl md:text-4xl font-bold mb-16 text-center">
           Inscriptions et Billetterie
         </h2>
@@ -543,7 +568,7 @@ export default function Home() {
       </section>
 
       {/* Contact and FAQ section */}
-      <section className="relative p-1 md:p5 overflow-hidden max-w-[90%] mx-auto mt-20 pb-20">
+      <section className="relative p-1 md:p5 overflow-hidden max-w-[90%] mx-auto mt-20 pb-20" id="contact">
         <h2 className="text-2xl md:text-4xl font-bold mb-8 text-center">
           Contact et FAQ
         </h2>
@@ -558,125 +583,202 @@ export default function Home() {
         {/* Contact Form */}
         <div className="max-w-8xl mx-auto mb-20">
           <h3 className="text-xl md:text-2xl font-semibold mb-8">Contactez-nous</h3>
-          <form className="space-y-8">
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mb-8">
-              <div>
-                <label className="block text-sm mb-2">First name</label>
-                <input
-                  type="text"
-                  className="w-full px-6 py-4 rounded-lg bg-[#0A2F85] border border-[#2bf7d5]/20 focus:outline-none focus:border-[#2bf7d5]"
+          <Form {...form}>
+            <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-8">
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+                <FormField
+                  control={form.control}
+                  name="firstName"
+                  render={({ field }) => (
+                    <FormItem>
+                      <FormLabel>First name</FormLabel>
+                      <FormControl>
+                        <Input 
+                          placeholder="Enter your first name" 
+                          className="px-6 py-4 rounded-lg bg-[#0A2F85] border border-[#2bf7d5]/20 focus:outline-none focus:border-[#2bf7d5]"
+                          {...field} 
+                        />
+                      </FormControl>
+                      <FormMessage />
+                    </FormItem>
+                  )}
+                />
+                <FormField
+                  control={form.control}
+                  name="lastName"
+                  render={({ field }) => (
+                    <FormItem>
+                      <FormLabel>Last name</FormLabel>
+                      <FormControl>
+                        <Input 
+                          placeholder="Enter your last name" 
+                          className="px-6 py-4 rounded-lg bg-[#0A2F85] border border-[#2bf7d5]/20 focus:outline-none focus:border-[#2bf7d5]"
+                          {...field} 
+                        />
+                      </FormControl>
+                      <FormMessage />
+                    </FormItem>
+                  )}
                 />
               </div>
-              <div>
-                <label className="block text-sm mb-2">Last name</label>
-                <input
-                  type="text"
-                  className="w-full px-6 py-4 rounded-lg bg-[#0A2F85] border border-[#2bf7d5]/20 focus:outline-none focus:border-[#2bf7d5]"
-                />
-              </div>
-            </div>
 
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mb-8">
-              <div>
-                <label className="block text-sm mb-2">Email</label>
-                <input
-                  type="email"
-                  className="w-full px-6 py-4 rounded-lg bg-[#0A2F85] border border-[#2bf7d5]/20 focus:outline-none focus:border-[#2bf7d5]"
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+                <FormField
+                  control={form.control}
+                  name="email"
+                  render={({ field }) => (
+                    <FormItem>
+                      <FormLabel>Email</FormLabel>
+                      <FormControl>
+                        <Input 
+                          type="email"
+                          placeholder="Enter your email" 
+                          className="px-6 py-4 rounded-lg bg-[#0A2F85] border border-[#2bf7d5]/20 focus:outline-none focus:border-[#2bf7d5]"
+                          {...field} 
+                        />
+                      </FormControl>
+                      <FormMessage />
+                    </FormItem>
+                  )}
+                />
+                <FormField
+                  control={form.control}
+                  name="phone"
+                  render={({ field }) => (
+                    <FormItem>
+                      <FormLabel>Phone number</FormLabel>
+                      <FormControl>
+                        <Input 
+                          type="tel"
+                          placeholder="Enter your phone number" 
+                          className="px-6 py-4 rounded-lg bg-[#0A2F85] border border-[#2bf7d5]/20 focus:outline-none focus:border-[#2bf7d5]"
+                          {...field} 
+                        />
+                      </FormControl>
+                      <FormMessage />
+                    </FormItem>
+                  )}
                 />
               </div>
-              <div>
-                <label className="block text-sm mb-2">Phone number</label>
-                <input
-                  type="tel"
-                  className="w-full px-6 py-4 rounded-lg bg-[#0A2F85] border border-[#2bf7d5]/20 focus:outline-none focus:border-[#2bf7d5]"
-                />
-              </div>
-            </div>
 
-            <div className="mb-8">
-              <label className="block text-sm mb-2">Subject</label>
-              <div className="relative">
-                <select
-                  className="w-full px-6 py-4 rounded-lg bg-[#0A2F85] border border-[#2bf7d5]/20 focus:outline-none focus:border-[#2bf7d5] appearance-none"
-                  onClick={() => setIsSelectOpen(!isSelectOpen)}
-                  onBlur={() => setIsSelectOpen(false)}
+              <FormField
+                control={form.control}
+                name="subject"
+                render={({ field }) => (
+                  <FormItem>
+                    <FormLabel>Subject</FormLabel>
+                    <Select onValueChange={field.onChange} defaultValue={field.value}>
+                      <FormControl>
+                        <SelectTrigger className="px-6 py-4 rounded-lg bg-[#0A2F85] border border-[#2bf7d5]/20 focus:outline-none focus:border-[#2bf7d5]">
+                          <SelectValue placeholder="Select one..." />
+                        </SelectTrigger>
+                      </FormControl>
+                      <SelectContent className="bg-[#0A2F85] border border-[#2bf7d5]/20 text-white rounded-lg p-2 shadow-lg">
+                        <SelectItem value="general" className="hover:bg-[#06286F] focus:bg-[#06286F] py-2 cursor-pointer">General Inquiry</SelectItem>
+                        <SelectItem value="sponsorship" className="hover:bg-[#06286F] focus:bg-[#06286F] py-2 cursor-pointer">Sponsorship</SelectItem>
+                        <SelectItem value="tickets" className="hover:bg-[#06286F] focus:bg-[#06286F] py-2 cursor-pointer">Tickets</SelectItem>
+                        <SelectItem value="speaker" className="hover:bg-[#06286F] focus:bg-[#06286F] py-2 cursor-pointer">Speaker</SelectItem>
+                        <SelectItem value="other" className="hover:bg-[#06286F] focus:bg-[#06286F] py-2 cursor-pointer">Other</SelectItem>
+                      </SelectContent>
+                    </Select>
+                    <FormMessage />
+                  </FormItem>
+                )}
+              />
+
+              <div className="mt-12">
+                <FormField
+                  control={form.control}
+                  name="description"
+                  render={({ field }) => (
+                    <FormItem className="space-y-4">
+                      <FormLabel>Which best describes you?</FormLabel>
+                      <FormControl>
+                        <RadioGroup
+                          onValueChange={field.onChange}
+                          defaultValue={field.value}
+                          className="grid grid-cols-1 md:grid-cols-3 gap-6"
+                        >
+                          {[
+                            "First choice",
+                            "Second choice",
+                            "Third choice",
+                            "Fourth choice",
+                            "Fifth choice",
+                            "Other"
+                          ].map((choice) => (
+                            <div key={choice} className="flex items-center space-x-3">
+                              <RadioGroupItem value={choice} className="text-[#2bf7d5]" />
+                              <label>{choice}</label>
+                            </div>
+                          ))}
+                        </RadioGroup>
+                      </FormControl>
+                      <FormMessage />
+                    </FormItem>
+                  )}
+                />
+              </div>
+
+              <FormField
+                control={form.control}
+                name="message"
+                render={({ field }) => (
+                  <FormItem>
+                    <FormLabel>Message</FormLabel>
+                    <FormControl>
+                      <Textarea
+                        placeholder="Type your message..."
+                        className="px-6 py-4 rounded-lg bg-[#0A2F85] border border-[#2bf7d5]/20 focus:outline-none focus:border-[#2bf7d5] resize-none"
+                        rows={6}
+                        {...field}
+                      />
+                    </FormControl>
+                    <FormMessage />
+                  </FormItem>
+                )}
+              />
+
+              <FormField
+                control={form.control}
+                name="terms"
+                render={({ field }) => (
+                  <FormItem className="flex items-center space-x-3">
+                    <FormControl>
+                      <Checkbox
+                        checked={field.value}
+                        onCheckedChange={field.onChange}
+                        className="h-5 w-5 text-[#2bf7d5] border-[#2bf7d5]/20"
+                      />
+                    </FormControl>
+                    <div className="space-y-1 leading-none">
+                      <label className="text-sm font-medium leading-none peer-disabled:cursor-not-allowed peer-disabled:opacity-70">
+                        I accept the <a href="#" className="text-[#2bf7d5] hover:underline">Terms</a>
+                      </label>
+                    </div>
+                    <FormMessage />
+                  </FormItem>
+                )}
+              />
+
+              <div className="flex justify-center">
+                <Button
+                  type="submit"
+                  className={cn(
+                    "bg-[#2bf7d5]",
+                    "text-[#06286f] px-16 py-4 text-lg rounded-lg w-full md:w-auto min-w-[200px]",
+                    "hover:opacity-90 transition-opacity"
+                  )}
                 >
-                  <option value="">Select one...</option>
-                  <option value="general">General Inquiry</option>
-                  <option value="sponsorship">Sponsorship</option>
-                  <option value="tickets">Tickets</option>
-                  <option value="other">Other</option>
-                </select>
-                {isSelectOpen ? (
-                  <ChevronUp className="absolute right-6 top-1/2 -translate-y-1/2 text-[#2bf7d5] w-5 h-5 pointer-events-none" />
-                ) : (
-                  <ChevronDown className="absolute right-6 top-1/2 -translate-y-1/2 text-[#2bf7d5] w-5 h-5 pointer-events-none" />
-                )}
+                  Soumettre
+                </Button>
               </div>
-            </div>
-
-            <div className="mb-8">
-              <label className="block text-sm mb-4">Which best describes you?</label>
-              <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-                <label className="flex items-center space-x-3">
-                  <input type="radio" name="description" className="form-radio text-[#2bf7d5]" />
-                  <span>First choice</span>
-                </label>
-                <label className="flex items-center space-x-3">
-                  <input type="radio" name="description" className="form-radio text-[#2bf7d5]" />
-                  <span>Second choice</span>
-                </label>
-                <label className="flex items-center space-x-3">
-                  <input type="radio" name="description" className="form-radio text-[#2bf7d5]" />
-                  <span>Third choice</span>
-                </label>
-                <label className="flex items-center space-x-3">
-                  <input type="radio" name="description" className="form-radio text-[#2bf7d5]" />
-                  <span>Fourth choice</span>
-                </label>
-                <label className="flex items-center space-x-3">
-                  <input type="radio" name="description" className="form-radio text-[#2bf7d5]" />
-                  <span>Fifth choice</span>
-                </label>
-                <label className="flex items-center space-x-3">
-                  <input type="radio" name="description" className="form-radio text-[#2bf7d5]" />
-                  <span>Other</span>
-                </label>
-              </div>
-            </div>
-
-            <div className="mb-8">
-              <label className="block text-sm mb-2">Message</label>
-              <textarea
-                rows={6}
-                placeholder="Type your message..."
-                className="w-full px-6 py-4 rounded-lg bg-[#0A2F85] border border-[#2bf7d5]/20 focus:outline-none focus:border-[#2bf7d5] resize-none"
-              ></textarea>
-            </div>
-
-            <div className="flex items-center mb-8">
-              <input type="checkbox" className="form-checkbox text-[#2bf7d5] mr-3 h-5 w-5" />
-              <span className="text-sm">
-                I accept the <a href="#" className="text-[#2bf7d5] hover:underline">Terms</a>
-              </span>
-            </div>
-
-            <div className="flex justify-center">
-              <Button
-                className={cn(
-                  "bg-[#2bf7d5]",
-                  "text-[#06286f] px-16 py-4 text-lg rounded-lg w-full md:w-auto min-w-[200px]",
-                  "hover:opacity-90 transition-opacity"
-                )}
-              >
-                Soumettre
-              </Button>
-            </div>
-          </form>
+            </form>
+          </Form>
         </div>
 
         {/* FAQ Section */}
-        <div className="max-w-8xl mx-auto">
+        <div className="max-w-8xl mx-auto" id="faqs">
           <h3 className="text-xl md:text-2xl font-semibold mb-8">Questions Fréquentes</h3>
           <Accordion type="single" collapsible className="space-y-4">
             <AccordionItem value="item-1" className="bg-[#0A2F85] rounded-lg border-none px-6">
