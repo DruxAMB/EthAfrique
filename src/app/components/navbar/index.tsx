@@ -19,7 +19,7 @@ const Navbar = () => {
     { href: '/programme', label: 'Programme' },
     { href: '/partenaires', label: 'Partenaires' },
     { href: '/inscriptions-et-billetterie', label: 'Inscriptions et Billetterie' },
-    { href: '/faq', label: 'FAQ' },
+    { href: '/faq', label: 'FAQs' },
     { href: '/contact', label: 'Contact' },
   ];
 
@@ -36,7 +36,7 @@ const Navbar = () => {
   return (
     <nav
       className={cn(
-        'fixed w-full md:w-[80%] md:left-1/2 md:-translate-x-1/2 z-50 transition-all duration-300',
+        'fixed w-full md:w-[90%] md:left-1/2 md:-translate-x-1/2 z-50 transition-all duration-300',
         'bg-[#0D3DA3] backdrop-blur-sm md:rounded-lg md:my-10 p-2',
         mounted ? 'opacity-100 translate-y-0' : 'opacity-0 -translate-y-4',
         hasScrolled ? 'shadow-lg' : ''
