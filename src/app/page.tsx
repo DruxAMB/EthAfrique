@@ -166,14 +166,17 @@ export default function Home() {
   return (
     <div className="bg-[#06286F] min-h-screen">
       {/* Hero Section */}
-      <section className="relative pt-36 pb-16 px-4 overflow-hidden max-w-[90%] m-auto">
-        {/* <div
-          className={cn(
-            'absolute inset-0 bottom-0 bg-cover bg-center opacity-100',
-            'bg-[url("/images/afrique.png")]'
-          )}
-        ></div> */}
-        <div className="text-center">
+      <section className="relative pt-36 pb-32 px-4 overflow-hidden max-w-[90%] m-auto min-h-[90vh] flex flex-col justify-center">
+        <div className="absolute inset-x-0 bottom-0 w-full h-[85%]">
+          <Image
+            src={Afrique}
+            alt="World Map Network"
+            fill
+            className="object-cover opacity-20"
+            priority
+          />
+        </div>
+        <div className="relative z-10 text-center">
           <h1 className="text-4xl md:text-6xl font-bold mb-6">
             Conference Ethereum{" "}
             <br />
