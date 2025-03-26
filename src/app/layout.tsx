@@ -14,6 +14,16 @@ const inter = Inter({ subsets : ["latin"] });
 export const metadata: Metadata = {
   title: "Conference Ethereum Afrique Francophone",
   description: "Connecter les Écosystèmes Web3 Mondiaux pour un Impact Global",
+  icons: {
+    icon: [
+      {
+        url: '/images/logo.png',
+        href: '/images/logo.png',
+      }
+    ],
+    apple: '/images/logo.png',
+  },
+  manifest: '/images/logo.png',
 };
 
 export default function RootLayout({
