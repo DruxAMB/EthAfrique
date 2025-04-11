@@ -1,15 +1,12 @@
 import React from "react";
 import type { Metadata } from "next";
-import { Inter } from "next/font/google";
+import { Poppins } from "next/font/google";
 import "./globals.css";
 import Navbar from "./components/navbar";
 import Footer from "./components/footer";
 import { ThemeProvider } from "./components/theme-provider";
-import Afrique from '../../public/images/afrique.png'
-import Weblines from '../../public/images/weblines.png'
-import Image from "next/image";
 
-const inter = Inter({ subsets : ["latin"] });
+const poppins = Poppins({ subsets: ["latin"], weight: ["400", "500", "600", "700"] });
 
 export const metadata: Metadata = {
   title: "Conference Ethereum Afrique Francophone",
@@ -34,7 +31,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body
-        className={`${inter.className} bg-[#06286F]`}
+        className={`${poppins.className} bg-[#06286F]`}
       >
         <ThemeProvider
         attribute='class'
