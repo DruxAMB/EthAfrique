@@ -166,7 +166,7 @@ export default function Home() {
   return (
     <div className="bg-[#06286F] min-h-screen">
       {/* Hero Section */}
-      <section className="relative pt-36 pb-32 px-4 overflow-hidden max-w-[90%] m-auto min-h-[90vh] flex flex-col justify-center">
+      <section className="relative pt-36 pb-32 px-4 overflow-hidden max-w-[90%] m-auto min-h-screen flex flex-col justify-center">
         <div className="absolute inset-x-0 bottom-0 w-full h-[85%]">
           <Image
             src={Afrique}
@@ -182,14 +182,14 @@ export default function Home() {
             <br />
             Afrique Francophone
           </h1>
-          <p className="text-gray-400 mb-8 max-w-2xl mx-auto text-lg">
+          <p className="text-[#D1FFEC] mb-8 max-w-2xl mx-auto text-lg">
             "Connecter les Écosystèmes Web3 Mondiaux pour un Impact Global"
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <Button
               className={cn(
                 "bg-[#2bf7d5]",
-                "text-[#06286f]  px-8 py-6 text-lg rounded-lg",
+                "text-[#06286f]  px-8 py-6 text-lg rounded-lg cursor-pointer",
                 "hover:opacity-90 transition-opacity"
               )}
             >
@@ -198,7 +198,7 @@ export default function Home() {
             <Button
               variant="outline"
               className={cn(
-                "border-[#2bf7d5] text-[#2bf7d5] hover:text-[#06286F] px-8 py-6 text-lg rounded-lg ",
+                "border-[#2bf7d5] text-[#2bf7d5] hover:text-[#06286F] px-8 py-6 text-lg rounded-lg cursor-pointer",
                 "bg-transparent hover:bg-[#2bf7d5] transition-colors"
               )}
             >
@@ -221,7 +221,7 @@ export default function Home() {
               className="object-cover"
             />
             <div className="absolute inset-0 bg-black/20 group-hover:bg-black/30 transition-colors duration-300" />
-            <button className="absolute inset-0 flex items-center justify-center group-hover:scale-110 transition-transform duration-300">
+            <button className="absolute inset-0 flex items-center justify-center group-hover:scale-110 transition-transform duration-300 cursor-pointer">
               <div className="w-20 h-20 bg-white/10 backdrop-blur-sm rounded-full flex items-center justify-center">
                 <div className="w-16 h-16 bg-white rounded-full flex items-center justify-center">
                   <Play className="w-8 h-8 text-[#8A2BE2] ml-1" />
@@ -240,7 +240,7 @@ export default function Home() {
             <p className="text-justify my-5 leading-8">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean scelerisque gravida tempus. Pellentesque odio purus, dapibus ut rutrum at, mollis sit amet eros. Nulla non tortor nec elit lacinia consectetur.</p>
             <Button  className={cn(
                 "bg-[#2bf7d5] w-full md:w-1/2",
-                "text-[#06286f]  px-8 py-6 text-lg rounded-lg",
+                "text-[#06286f]  px-8 py-6 text-lg rounded-lg cursor-pointer",
                 "hover:opacity-90 transition-opacity"
               )}>
               À propos
@@ -280,7 +280,7 @@ export default function Home() {
           <Button
             className={cn(
               "bg-[#2bf7d5]",
-              "text-[#06286f]  px-8 py-6 text-lg rounded-lg",
+              "text-[#06286f]  px-8 py-6 text-lg rounded-lg cursor-pointer",
               "hover:opacity-90 transition-opacity"
             )}
           >
@@ -289,7 +289,7 @@ export default function Home() {
           <Button
             variant="outline"
             className={cn(
-              "border-[#2bf7d5] text-[#2bf7d5] hover:text-[#06286F] px-8 py-6 text-lg rounded-lg ",
+              "border-[#2bf7d5] text-[#2bf7d5] hover:text-[#06286F] px-8 py-6 text-lg rounded-lg cursor-pointer",
               "bg-transparent hover:bg-[#2bf7d5] transition-colors"
             )}
           >
@@ -402,13 +402,13 @@ export default function Home() {
           <div className="flex gap-4">
             <button 
               onClick={handlePrevSpeakers}
-              className="w-12 h-12  flex items-center justify-center group hover:bg-[#2bf7d5] transition-colors"
+              className="w-12 h-12  flex items-center justify-center group hover:bg-[#2bf7d5] transition-colors cursor-pointer"
             >
               <Image src={leftArrow} alt="left arrow" />
             </button>
             <button 
               onClick={handleNextSpeakers}
-              className="w-12 h-12 flex items-center justify-center group hover:bg-[#2bf7d5] transition-colors"
+              className="w-12 h-12 flex items-center justify-center group hover:bg-[#2bf7d5] transition-colors cursor-pointer"
             >
               <Image src={rightArrow} alt="right arrow" />
             </button>
@@ -445,7 +445,7 @@ export default function Home() {
               key={index}
               onClick={() => setCurrentSpeakerPage(index)}
               className={cn(
-                "w-2 h-2 rounded-full transition-all duration-300",
+                "w-2 h-2 rounded-full transition-all duration-300 cursor-pointer",
                 currentSpeakerPage === index 
                   ? "bg-[#2bf7d5] w-8" 
                   : "bg-[#2bf7d5]/30 hover:bg-[#2bf7d5]/50"
@@ -514,7 +514,7 @@ export default function Home() {
           <Button
             className={cn(
               "bg-[#2bf7d5]",
-              "text-[#06286f] px-8 py-4 text-lg rounded-lg",
+              "text-[#06286f] px-8 py-4 text-lg rounded-lg cursor-pointer",
               "hover:opacity-90 transition-opacity"
             )}
           >
@@ -546,7 +546,7 @@ export default function Home() {
           <Button
             className={cn(
               "bg-[#2bf7d5]",
-              "text-[#06286f] px-12 py-4 text-lg rounded-lg w-full md:w-auto max-w-md",
+              "text-[#06286f] px-12 py-4 text-lg rounded-lg w-full md:w-auto max-w-md cursor-pointer",
               "hover:opacity-90 transition-opacity"
             )}
           >
@@ -769,7 +769,7 @@ export default function Home() {
                   type="submit"
                   className={cn(
                     "bg-[#2bf7d5]",
-                    "text-[#06286f] px-16 py-4 text-lg rounded-lg w-full md:w-auto min-w-[200px]",
+                    "text-[#06286f] px-16 py-4 text-lg rounded-lg w-full md:w-auto min-w-[200px] cursor-pointer",
                     "hover:opacity-90 transition-opacity"
                   )}
                 >

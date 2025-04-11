@@ -53,7 +53,7 @@ const Navbar = () => {
                 'transition-all duration-300 hover:text-blue-300'
               )}
             >
-              <Image src={Logo} alt="EthAfrique" width={100} height={100} />
+              <Image src={Logo} alt="EthAfrique" width={100} height={100} quality={100} />
             </Link>
           </div>
 
@@ -81,7 +81,7 @@ const Navbar = () => {
           <div className="hidden md:block">
             <Button
               className={cn(
-                'bg-[#2BF7D5] text-black px-4 py-2 rounded',
+                'bg-[#2BF7D5] text-black px-4 py-2 rounded cursor-pointer',
                 'hover:bg-teal-600 transition-all duration-300 flex items-center'
               )}
             >
