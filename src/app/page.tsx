@@ -6,7 +6,9 @@ import { Button } from "./components/ui/button";
 import { Play } from "lucide-react";
 import Testimonials from "../../public/images/testimonials.png";
 import contentImg from "../../public/images/conference.png";
-import agendaImg from "../../public/images/agenda-image.png";
+import workshopImg from "../../public/images/workshop.png";
+import timelineImg from "../../public/images/timeline.png";
+import timelineImg2 from "../../public/images/timeline2.png";
 import { useState } from "react";
 import rightArrow from "../../public/images/right-arrow.svg";
 import leftArrow from "../../public/images/left-arrow.svg";
@@ -453,7 +455,7 @@ export default function Home() {
         </div>
       </section>
 
-      {/* timeline section */}
+        {/* timeline section */}
       <section
         className="relative p-1 md:p5 overflow-hidden max-w-[90%] m-auto my-10"
         id="programme"
@@ -463,54 +465,80 @@ export default function Home() {
         </h2>
 
         {/* timeline map */}
-        <div className="flex flex-col md:flex-row items-center justify-between gap-8 md:gap-16">
-          <div className="w-full md:w-1/2">
-            <div className="relative">
-              {/* Vertical Timeline Line */}
-              <div className="absolute left-[15px] top-0 h-full w-[2px] bg-[#2bf7d5]"></div>
-
-              {timelineData.map((event, index) => (
-                <div key={index} className="relative mb-12">
-                  {/* Timeline Marker */}
-                  <div className="absolute left-0 top-2 h-8 w-8 rounded-full bg-[#2bf7d5]"></div>
-
-                  {/* Event Title */}
-                  <h3 className="ml-16 text-2xl font-bold mb-4">
-                    {event.title}
-                  </h3>
-
-                  {/* Event Content */}
-                  {event.subEvents && (
-                    <div className="ml-16 space-y-4 mt-4">
-                      {event.subEvents.map((subEvent, subIndex) => (
-                        <div
-                          key={subIndex}
-                          className="bg-[#0A2F85] rounded-2xl p-6 border border-[#2bf7d5]/20"
-                        >
-                          <h4 className="text-xl font-bold mb-2">
-                            {subEvent.day}
-                          </h4>
-                          <p className="text-gray-300">
-                            {subEvent.description}
-                          </p>
-                        </div>
-                      ))}
-                    </div>
+        <div className="space-y-16">
+          {timelineData.map((event, index) => (
+            <div key={index} className="flex flex-col md:flex-row items-start justify-between gap-8 md:gap-16">
+              {/* Timeline Content */}
+              <div className="w-full md:w-1/2">
+                <div className="relative">
+                  {/* Vertical Timeline Line */}
+                  {index < timelineData.length - 1 && (
+                    <div className="absolute left-[15px] top-[42px] h-[calc(100%+64px)] w-[2px] bg-[#2bf7d5]"></div>
                   )}
-                </div>
-              ))}
-            </div>
-          </div>
+                  
+                  <div className="relative">
+                    {/* Timeline Marker */}
+                    <div className="absolute left-0 top-2 h-8 w-8 rounded-full bg-[#2bf7d5]"></div>
 
-          <div className="w-full md:w-1/2 rounded-3xl overflow-hidden">
-            <Image
-              src={agendaImg}
-              alt="Conference Image"
-              width={1920}
-              height={1080}
-              className="w-full h-full object-cover rounded-3xl"
-            />
-          </div>
+                    {/* Event Title */}
+                    <h3 className="ml-16 text-2xl font-bold mb-4">
+                      {event.title}
+                    </h3>
+
+                    {/* Event Content */}
+                    {event.subEvents && (
+                      <div className="ml-16 space-y-4 mt-4">
+                        {event.subEvents.map((subEvent, subIndex) => (
+                          <div
+                            key={subIndex}
+                            className="bg-[#0A2F85] rounded-2xl p-6 border border-[#2bf7d5]/20"
+                          >
+                            <h4 className="text-xl font-bold mb-2">
+                              {subEvent.day}
+                            </h4>
+                            <p className="text-gray-300">
+                              {subEvent.description}
+                            </p>
+                          </div>
+                        ))}
+                      </div>
+                    )}
+                  </div>
+                </div>
+              </div>
+
+              {/* Timeline Image */}
+              <div className="w-full md:w-1/2 rounded-3xl overflow-hidden">
+                {index === 0 && (
+                  <Image
+                    src={workshopImg}
+                    alt="Pre Event Workshop Image"
+                    width={600}
+                    height={400}
+                    className="w-full h-auto object-cover rounded-3xl"
+                  />
+                )}
+                {index === 1 && (
+                  <Image
+                    src={timelineImg2}
+                    alt="Hackathon Timeline Image"
+                    width={600}
+                    height={400}
+                    className="w-full h-auto object-cover rounded-3xl"
+                  />
+                )}
+                {index === 2 && (
+                  <Image
+                    src={timelineImg}
+                    alt="Conference Timeline Image"
+                    width={600}
+                    height={400}
+                    className="w-full h-auto object-cover rounded-3xl"
+                  />
+                )}
+              </div>
+            </div>
+          ))}
         </div>
       </section>
 
