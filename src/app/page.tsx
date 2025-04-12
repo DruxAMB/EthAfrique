@@ -1,27 +1,42 @@
-'use client'
+"use client";
 import Image from "next/image";
-import Afrique from '../../public/images/afrique.png'
+import Afrique from "../../public/images/afrique.png";
 import { cn } from "./lib/utils";
 import { Button } from "./components/ui/button";
 import { Play } from "lucide-react";
-import Testimonials from '../../public/images/testimonials.png'
-import contentImg from '../../public/images/conference.png'
-import agendaImg from '../../public/images/agenda-image.png'
+import Testimonials from "../../public/images/testimonials.png";
+import contentImg from "../../public/images/conference.png";
+import agendaImg from "../../public/images/agenda-image.png";
 import { useState } from "react";
-import rightArrow from '../../public/images/right-arrow.svg'
-import leftArrow from '../../public/images/left-arrow.svg'
-import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "./components/ui/accordion";
+import rightArrow from "../../public/images/right-arrow.svg";
+import leftArrow from "../../public/images/left-arrow.svg";
+import {
+  Accordion,
+  AccordionContent,
+  AccordionItem,
+  AccordionTrigger,
+} from "./components/ui/accordion";
 import { Card, CardContent, CardHeader, CardTitle } from "./components/ui/card";
 import { useForm } from "react-hook-form";
-import { Form, FormControl, FormField, FormItem, FormLabel, FormMessage } from "./components/ui/form";
+import {
+  Form,
+  FormControl,
+  FormField,
+  FormItem,
+  FormLabel,
+  FormMessage,
+} from "./components/ui/form";
 import { Input } from "./components/ui/input";
-import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "./components/ui/select";
+import {
+  Select,
+  SelectContent,
+  SelectItem,
+  SelectTrigger,
+  SelectValue,
+} from "./components/ui/select";
 import { RadioGroup, RadioGroupItem } from "./components/ui/radio-group";
 import { Checkbox } from "./components/ui/checkbox";
 import { Textarea } from "./components/ui/textarea";
-
-
-
 
 export default function Home() {
   const [currentSpeakerPage, setCurrentSpeakerPage] = useState(0);
@@ -31,47 +46,47 @@ export default function Home() {
     { name: "Tech", image: "/images/tech.svg" },
     { name: "Logite", image: "/images/logite.svg" },
     { name: "Salesforce", image: "/images/salesforce.svg" },
-    {name: "Delivery", image: "/images/delivery.svg"}
+    { name: "Delivery", image: "/images/delivery.svg" },
   ];
 
   const paymentMethods = [
     { name: "Stripe", image: "/images/stripe.svg" },
     { name: "Mastercard", image: "/images/mastercard.svg" },
-    { name: "BitPay", image: "/images/bitpay.svg" }
+    { name: "BitPay", image: "/images/bitpay.svg" },
   ];
 
   const sponsorshipPackages = [
     { name: "Diamond Sponsor", price: "5,000$+" },
     { name: "Gold Sponsor", price: "3,000$" },
     { name: "Silver Sponsor", price: "2,000$" },
-    { name: "Partner Sponsor", price: "1,000$" }
+    { name: "Partner Sponsor", price: "1,000$" },
   ];
 
   const ticketTypes = [
     { name: "Standard Ticket", price: "12$" },
     { name: "VIP Ticket", price: "60$" },
-    { name: "Hackathon Access", price: "30$" }
+    { name: "Hackathon Access", price: "30$" },
   ];
 
   const timelineData = [
     {
-      title: 'Pré-événement',
-      description: '7 jours - Workshops en ligne, mentorat, Hackathon',
+      title: "Pré-événement",
+      description: "7 jours - Workshops en ligne, mentorat, Hackathon",
     },
     {
-      title: 'Conférence principale',
+      title: "Conférence principale",
       subEvents: [
         {
-          day: 'Jour 1',
-          description: 'Keynotes, panels sur la gouvernance décentralisée',
+          day: "Jour 1",
+          description: "Keynotes, panels sur la gouvernance décentralisée",
         },
         {
-          day: 'Jour 2',
-          description: 'Ateliers techniques, pitches startups',
+          day: "Jour 2",
+          description: "Ateliers techniques, pitches startups",
         },
         {
-          day: 'Jour 3',
-          description: 'Networking, intervention des BEOs, remise des prix',
+          day: "Jour 3",
+          description: "Networking, intervention des BEOs, remise des prix",
         },
       ],
     },
@@ -82,50 +97,54 @@ export default function Home() {
       name: "John Doe",
       role: "Blockchain Developer",
       description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
-      image: "/images/speaker-image.png"
+      image: "/images/speaker-image.png",
     },
     {
       name: "Jane Smith",
       role: "DeFi Specialist",
       description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
-     image: "/images/speaker-image.png"
+      image: "/images/speaker-image.png",
     },
     {
       name: "Alex Johnson",
       role: "Smart Contract Engineer",
       description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
-      image: "/images/speaker-image.png"
+      image: "/images/speaker-image.png",
     },
     {
       name: "Sarah Wilson",
       role: "Web3 Architect",
       description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
-      image: "/images/speaker-image.png"
+      image: "/images/speaker-image.png",
     },
     {
       name: "Michael Brown",
       role: "NFT Specialist",
       description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
-      image: "https://images.unsplash.com/photo-1522071820081-009f0129c71c?auto=format&fit=crop&w=800"
+      image:
+        "https://images.unsplash.com/photo-1522071820081-009f0129c71c?auto=format&fit=crop&w=800",
     },
     {
       name: "Emily Davis",
       role: "Ethereum Researcher",
       description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
-      image: "https://images.unsplash.com/photo-1522071820081-009f0129c71c?auto=format&fit=crop&w=800"
+      image:
+        "https://images.unsplash.com/photo-1522071820081-009f0129c71c?auto=format&fit=crop&w=800",
     },
     {
       name: "David Miller",
       role: "Protocol Developer",
       description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
-      image: "https://images.unsplash.com/photo-1522071820081-009f0129c71c?auto=format&fit=crop&w=800"
+      image:
+        "https://images.unsplash.com/photo-1522071820081-009f0129c71c?auto=format&fit=crop&w=800",
     },
     {
       name: "Lisa Anderson",
       role: "Security Expert",
       description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
-      image: "https://images.unsplash.com/photo-1522071820081-009f0129c71c?auto=format&fit=crop&w=800"
-    }
+      image:
+        "https://images.unsplash.com/photo-1522071820081-009f0129c71c?auto=format&fit=crop&w=800",
+    },
   ];
 
   const speakersPerPage = 4;
@@ -153,8 +172,8 @@ export default function Home() {
       subject: "",
       description: "",
       message: "",
-      terms: false
-    }
+      terms: false,
+    },
   });
 
   const onSubmit = (data: any) => {
@@ -177,8 +196,7 @@ export default function Home() {
         </div>
         <div className="relative z-10 text-center">
           <h1 className="text-4xl md:text-6xl font-bold mb-6">
-            Conference Ethereum{" "}
-            <br />
+            Conference Ethereum <br />
             Afrique Francophone
           </h1>
           <p className="text-[#D1FFEC] mb-8 max-w-2xl mx-auto text-lg">
@@ -204,7 +222,7 @@ export default function Home() {
               Devenir Sponsor
             </Button>
           </div>
-        </div>  
+        </div>
       </section>
 
       {/* video section */}
@@ -235,13 +253,25 @@ export default function Home() {
         {/* write up section */}
         <div className="flex flex-col md:flex-row items-center justify-between m-5 md:m-10">
           <div className="text-start w-full md:w-[50%] p-2 md:p-5">
-            <p className="text-justify my-5 leading-8 ">A global event bringing together experts, innovators, startups, investors, and enthusiasts to strengthen blockchain and Web3 adoption while highlighting the potential of the Francophone ecosystem on the international stage.</p>
-            <p className="text-justify my-5 leading-8">The conference will unite ETH communities from Togo, Benin, Ivory Coast, Senegal, Cameroon, and Burkina Faso to spotlight the Francophone ecosystem—while also recognizing the vital inspiration from Anglophone countries.</p>
-            <Button  className={cn(
+            <p className="text-justify my-5 leading-8 ">
+              A global event bringing together experts, innovators, startups,
+              investors, and enthusiasts to strengthen blockchain and Web3
+              adoption while highlighting the potential of the Francophone
+              ecosystem on the international stage.
+            </p>
+            <p className="text-justify my-5 leading-8">
+              The conference will unite ETH communities from Togo, Benin, Ivory
+              Coast, Senegal, Cameroon, and Burkina Faso to spotlight the
+              Francophone ecosystem—while also recognizing the vital inspiration
+              from Anglophone countries.
+            </p>
+            <Button
+              className={cn(
                 "bg-[#2bf7d5] w-full md:w-1/2",
                 "text-[#06286f]  px-8 py-6 text-lg rounded-lg cursor-pointer",
                 "hover:opacity-90 transition-opacity"
-              )}>
+              )}
+            >
               À propos
             </Button>
           </div>
@@ -252,7 +282,10 @@ export default function Home() {
       </section>
 
       {/* partners section */}
-      <section className="relative p-5 overflow-hidden max-w-[90%] m-auto" id="partenaires">
+      <section
+        className="relative p-5 overflow-hidden max-w-[90%] m-auto"
+        id="partenaires"
+      >
         <h2 className="text-2xl md:text-4xl font-bold mb-6 text-center">
           Sponsors et Partenaires Confirmés
         </h2>
@@ -297,50 +330,100 @@ export default function Home() {
         </div>
       </section>
 
-      <section className="relative p-1 md:p5 overflow-hidden max-w-[90%] m-auto" id="apropos">
+      <section
+        className="relative p-1 md:p5 overflow-hidden max-w-[90%] m-auto"
+        id="apropos"
+      >
         <h2 className="text-2xl md:text-4xl font-bold mb-6 text-start">
           À Propos
         </h2>
 
         <div className="rounded-3xl ">
-            <Image src={contentImg} 
-              alt="content"
-              width={1920}
-              height={1080}
+          <Image
+            src={contentImg}
+            alt="content"
+            width={1920}
+            height={1080}
             className="object-cover"
-            />
+          />
         </div>
 
         <div className="flex flex-col md:flex-row items-center justify-between m-5 md:m-10">
           <div className="text-start w-full md:w-[45%] p-2 md:p-5">
-            <p className="text-justify my-5 leading-8 ">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean scelerisque gravida tempus. Pellentesque odio purus, dapibus ut rutrum at, mollis sit amet eros. Nulla non tortor nec elit lacinia consectetur.</p>
-            <p className="text-justify my-5 leading-8">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean scelerisque gravida tempus. Pellentesque odio purus, dapibus ut rutrum at, mollis sit amet eros. Nulla non tortor nec elit lacinia consectetur.</p>
-            <p className="text-justify my-5 leading-8 ">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean scelerisque gravida tempus. Pellentesque odio purus, dapibus ut rutrum at, mollis sit amet eros. Nulla non tortor nec elit lacinia consectetur.</p>
-            <p className="text-justify my-5 leading-8">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean scelerisque gravida tempus. Pellentesque odio purus, dapibus ut rutrum at, mollis sit amet eros. Nulla non tortor nec elit lacinia consectetur.</p>
+            <p className="text-justify my-5 leading-8 ">
+              ETH Afrique Francophone is more than just a conference. It aims to
+              bridge a gap by offering a space for exchange and collaboration
+              among Ethereum ecosystem stakeholders in the Francophone region
+            </p>
+            <p className="text-justify my-5 leading-8">
+              Unlike well-established Anglophone events, this conference seeks
+              to promote inclusion and adoption of Ethereum blockchain in
+              countries where the language barrier hinders innovation.
+            </p>
+            <p className="text-justify my-5 leading-8 ">
+              Educate and raise awareness among developers, entrepreneurs, and
+              decision-makers about Ethereum and Web3 opportunities
+            </p>
+            <p className="text-justify my-5 leading-8">
+              Promote the Francophone ecosystem by showcasing its unique
+              strengths and potential for innovation
+            </p>
 
             <div className="rounded-xl bg-[#0f2757] px-5 py-10">
-              <h2 className="text-2xl md:4xl font-bold">Mission</h2>
-              <p className="my-5 leading-10 text-justify">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean scelerisque gravida tempus. Pellentesque odio purus, dapibus ut rutrum at, mollis sit amet eros. Nulla non tortor nec elit lacinia consectetur.</p>
+              <h2 className="text-2xl md:4xl font-bold">Why EthAfrique?</h2>
+              <p className="my-5 leading-10 text-justify">
+                The Francophone ecosystem is rich in talent and potential, but
+                often faces barriers to innovation due to the language barrier.
+                By providing a platform for dialogue and collaboration, we can
+                help bridge this gap and foster growth in the region.
+              </p>
             </div>
           </div>
 
           <div className="text-start w-full md:w-[45%] p-2 md:p-5">
-            <p className="text-justify my-5 leading-8 ">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean scelerisque gravida tempus. Pellentesque odio purus, dapibus ut rutrum at, mollis sit amet eros. Nulla non tortor nec elit lacinia consectetur.</p>
-            <p className="text-justify my-5 leading-8">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean scelerisque gravida tempus. Pellentesque odio purus, dapibus ut rutrum at, mollis sit amet eros. Nulla non tortor nec elit lacinia consectetur.</p>
-            <p className="text-justify my-5 leading-8 ">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean scelerisque gravida tempus. Pellentesque odio purus, dapibus ut rutrum at, mollis sit amet eros. Nulla non tortor nec elit lacinia consectetur.</p>
-            <p className="text-justify my-5 leading-8">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean scelerisque gravida tempus. Pellentesque odio purus, dapibus ut rutrum at, mollis sit amet eros. Nulla non tortor nec elit lacinia consectetur.</p>
+            <p className="text-justify my-5 leading-8 ">
+             
+            ETH Afrique Conf is already generating strong interest within
+                the blockchain community. Several factors explain this
+                enthusiasm.
+            </p>
+            <p className="text-justify my-5 leading-8 ">
+              A First in Francophone Africa: This event is unique and addresses
+              a critical need for recognition and structuring of the Francophone
+              Ethereum community.
+            </p>
+            <p className="text-justify my-5 leading-8">
+              Renowned Speakers: The conf will attract experts, developers, and
+              entrepreneurs recognized in the Ethereum ecosystem.
+            </p>
+            <p className="text-justify my-5 leading-8 ">
+              Strong Impact Potential: The event will act as a catalyst for
+              developing concrete projects suited to the continent’s realities.
+            </p>
+            <p className="text-justify my-5 leading-8">
+              Growing Demand for Blockchain in Africa: More institutional and
+              private players are acknowledging blockchain’s transformative
+              potential.
+            </p>
 
             <div className="rounded-xl bg-[#0f2757] px-5 py-10">
-              <h2 className="text-2xl md:4xl font-bold">Mission</h2>
-              <p className="my-5 leading-10 text-justify">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean scelerisque gravida tempus. Pellentesque odio purus, dapibus ut rutrum at, mollis sit amet eros. Nulla non tortor nec elit lacinia consectetur.</p>
+              <h2 className="text-2xl md:4xl font-bold">Excitement</h2>
+              <p className="my-5 leading-10 text-justify">
+              ETH Afrique Conf is a must-attend initiative for the future of the blockchain ecosystem in Francophone Africa. It meets a pressing demand for information, training, and collaboration for massive and inclusive Ethereum adoption.
+              </p>
             </div>
           </div>
         </div>
       </section>
 
       {/* timeline section */}
-      <section className="relative p-1 md:p5 overflow-hidden max-w-[90%] m-auto my-10" id="programme">
-        <h2 className="text-2xl md:text-4xl font-bold mb-16 text-center">Programme (Agenda/Schedule)</h2>
+      <section
+        className="relative p-1 md:p5 overflow-hidden max-w-[90%] m-auto my-10"
+        id="programme"
+      >
+        <h2 className="text-2xl md:text-4xl font-bold mb-16 text-center">
+          Programme (Agenda/Schedule)
+        </h2>
 
         {/* timeline map */}
         <div className="flex flex-col md:flex-row items-center justify-between gap-8 md:gap-16">
@@ -355,22 +438,35 @@ export default function Home() {
                   <div className="absolute left-0 top-2 h-8 w-8 rounded-full bg-[#2bf7d5]"></div>
 
                   {/* Event Title */}
-                  <h3 className="ml-16 text-2xl font-bold mb-4">{event.title}</h3>
+                  <h3 className="ml-16 text-2xl font-bold mb-4">
+                    {event.title}
+                  </h3>
 
                   {/* Event Content */}
                   {event.description ? (
                     <div className="ml-16 bg-[#0A2F85] rounded-2xl p-6 border border-[#2bf7d5]/20">
-                      <h4 className="text-xl font-bold mb-2">{event.description.split(' - ')[0]}</h4>
-                      <p className="text-gray-300">{event.description.split(' - ')[1]}</p>
+                      <h4 className="text-xl font-bold mb-2">
+                        {event.description.split(" - ")[0]}
+                      </h4>
+                      <p className="text-gray-300">
+                        {event.description.split(" - ")[1]}
+                      </p>
                     </div>
                   ) : null}
 
                   {event.subEvents && (
                     <div className="ml-16 space-y-4 mt-4">
                       {event.subEvents.map((subEvent, subIndex) => (
-                        <div key={subIndex} className="bg-[#0A2F85] rounded-2xl p-6 border border-[#2bf7d5]/20">
-                          <h4 className="text-xl font-bold mb-2">{subEvent.day}</h4>
-                          <p className="text-gray-300">{subEvent.description}</p>
+                        <div
+                          key={subIndex}
+                          className="bg-[#0A2F85] rounded-2xl p-6 border border-[#2bf7d5]/20"
+                        >
+                          <h4 className="text-xl font-bold mb-2">
+                            {subEvent.day}
+                          </h4>
+                          <p className="text-gray-300">
+                            {subEvent.description}
+                          </p>
                         </div>
                       ))}
                     </div>
@@ -395,17 +491,15 @@ export default function Home() {
       {/* speakers section */}
       <section className="relative p-1 md:p5 overflow-hidden max-w-[90%] mx-auto">
         <div className="flex items-center justify-between mb-12">
-          <h2 className="text-2xl md:text-4xl font-bold">
-            Speakers
-          </h2>
+          <h2 className="text-2xl md:text-4xl font-bold">Speakers</h2>
           <div className="flex gap-4">
-            <button 
+            <button
               onClick={handlePrevSpeakers}
               className="w-12 h-12  flex items-center justify-center group hover:bg-[#2bf7d5] transition-colors cursor-pointer"
             >
               <Image src={leftArrow} alt="left arrow" />
             </button>
-            <button 
+            <button
               onClick={handleNextSpeakers}
               className="w-12 h-12 flex items-center justify-center group hover:bg-[#2bf7d5] transition-colors cursor-pointer"
             >
@@ -416,8 +510,8 @@ export default function Home() {
 
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
           {visibleSpeakers.map((speaker, index) => (
-            <div 
-              key={index + currentSpeakerPage * speakersPerPage} 
+            <div
+              key={index + currentSpeakerPage * speakersPerPage}
               className="bg-gray-100 rounded-tl-3xl overflow-hidden transform transition-all duration-500 hover:scale-105"
             >
               <div className="aspect-square relative">
@@ -445,8 +539,8 @@ export default function Home() {
               onClick={() => setCurrentSpeakerPage(index)}
               className={cn(
                 "w-2 h-2 rounded-full transition-all duration-300 cursor-pointer",
-                currentSpeakerPage === index 
-                  ? "bg-[#2bf7d5] w-8" 
+                currentSpeakerPage === index
+                  ? "bg-[#2bf7d5] w-8"
                   : "bg-[#2bf7d5]/30 hover:bg-[#2bf7d5]/50"
               )}
             />
@@ -462,16 +556,22 @@ export default function Home() {
 
         <div className="max-w-7xl mx-auto text-center mb-20">
           <p className="text-gray-300 mb-8">
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean scelerisque gravida tempus. Pellentesque odio purus, dapibus
-            ut rutrum at, mollis sit amet eros. Nulla non tortor nec elit lacinia consectetur. Lorem ipsum dolor sit amet, consectetur
-            adipiscing elit. Aenean scelerisque gravida tempus. Pellentesque odio purus, dapibus ut rutrum at, mollis sit amet eros. Nulla
-            non tortor nec elit lacinia consectetur.
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean
+            scelerisque gravida tempus. Pellentesque odio purus, dapibus ut
+            rutrum at, mollis sit amet eros. Nulla non tortor nec elit lacinia
+            consectetur. Lorem ipsum dolor sit amet, consectetur adipiscing
+            elit. Aenean scelerisque gravida tempus. Pellentesque odio purus,
+            dapibus ut rutrum at, mollis sit amet eros. Nulla non tortor nec
+            elit lacinia consectetur.
           </p>
           <p className="text-gray-300">
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean scelerisque gravida tempus. Pellentesque odio purus, dapibus
-            ut rutrum at, mollis sit amet eros. Nulla non tortor nec elit lacinia consectetur. Lorem ipsum dolor sit amet, consectetur
-            adipiscing elit. Aenean scelerisque gravida tempus. Pellentesque odio purus, dapibus ut rutrum at, mollis sit amet eros. Nulla
-            non tortor nec elit lacinia consectetur.
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean
+            scelerisque gravida tempus. Pellentesque odio purus, dapibus ut
+            rutrum at, mollis sit amet eros. Nulla non tortor nec elit lacinia
+            consectetur. Lorem ipsum dolor sit amet, consectetur adipiscing
+            elit. Aenean scelerisque gravida tempus. Pellentesque odio purus,
+            dapibus ut rutrum at, mollis sit amet eros. Nulla non tortor nec
+            elit lacinia consectetur.
           </p>
         </div>
 
@@ -481,12 +581,19 @@ export default function Home() {
 
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mb-16">
           {sponsorshipPackages.map((pkg, index) => (
-            <Card key={index} className="bg-white rounded-3xl transform transition-all duration-300 hover:scale-105">
+            <Card
+              key={index}
+              className="bg-white rounded-3xl transform transition-all duration-300 hover:scale-105"
+            >
               <CardHeader>
-                <CardTitle className="text-[#2563EB] text-xl font-semibold">{pkg.name}</CardTitle>
+                <CardTitle className="text-[#2563EB] text-xl font-semibold">
+                  {pkg.name}
+                </CardTitle>
               </CardHeader>
               <CardContent>
-                <div className="text-[#2563EB] text-3xl font-bold">{pkg.price}</div>
+                <div className="text-[#2563EB] text-3xl font-bold">
+                  {pkg.price}
+                </div>
               </CardContent>
             </Card>
           ))}
@@ -523,19 +630,29 @@ export default function Home() {
       </section>
 
       {/* tickets section */}
-      <section className="relative p-1 md:p5 overflow-hidden max-w-[90%] mx-auto my-20" id="inscriptions">
+      <section
+        className="relative p-1 md:p5 overflow-hidden max-w-[90%] mx-auto my-20"
+        id="inscriptions"
+      >
         <h2 className="text-2xl md:text-4xl font-bold mb-16 text-center">
           Inscriptions et Billetterie
         </h2>
 
         <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-16">
           {ticketTypes.map((ticket, index) => (
-            <Card key={index} className="bg-white rounded-3xl transform transition-all duration-300 hover:scale-105">
+            <Card
+              key={index}
+              className="bg-white rounded-3xl transform transition-all duration-300 hover:scale-105"
+            >
               <CardHeader>
-                <CardTitle className="text-[#2563EB] text-2xl font-semibold">{ticket.name}</CardTitle>
+                <CardTitle className="text-[#2563EB] text-2xl font-semibold">
+                  {ticket.name}
+                </CardTitle>
               </CardHeader>
               <CardContent>
-                <div className="text-[#2563EB] text-5xl font-bold">{ticket.price}</div>
+                <div className="text-[#2563EB] text-5xl font-bold">
+                  {ticket.price}
+                </div>
               </CardContent>
             </Card>
           ))}
@@ -556,7 +673,10 @@ export default function Home() {
         {/* Payment Methods */}
         <div className="flex flex-wrap items-center justify-center gap-8">
           {paymentMethods.map((method, index) => (
-            <div key={index} className="bg-white rounded-xl p-4 w-32 h-16 flex items-center justify-center">
+            <div
+              key={index}
+              className="bg-white rounded-xl p-4 w-32 h-16 flex items-center justify-center"
+            >
               <Image
                 src={method.image}
                 alt={method.name}
@@ -570,21 +690,28 @@ export default function Home() {
       </section>
 
       {/* Contact and FAQ section */}
-      <section className="relative p-1 md:p5 overflow-hidden max-w-[90%] mx-auto mt-20 pb-20" id="contact">
+      <section
+        className="relative p-1 md:p5 overflow-hidden max-w-[90%] mx-auto mt-20 pb-20"
+        id="contact"
+      >
         <h2 className="text-2xl md:text-4xl font-bold mb-8 text-center">
           Contact et FAQ
         </h2>
 
         <div className="max-w-8xl mx-auto text-center mb-12">
           <p className="text-gray-300">
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean scelerisque gravida tempus. Pellentesque odio purus, dapibus
-            ut rutrum at, mollis sit amet eros. Nulla non tortor nec elit lacinia consectetur.
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean
+            scelerisque gravida tempus. Pellentesque odio purus, dapibus ut
+            rutrum at, mollis sit amet eros. Nulla non tortor nec elit lacinia
+            consectetur.
           </p>
         </div>
 
         {/* Contact Form */}
         <div className="max-w-8xl mx-auto mb-20">
-          <h3 className="text-xl md:text-2xl font-semibold mb-8">Contactez-nous</h3>
+          <h3 className="text-xl md:text-2xl font-semibold mb-8">
+            Contactez-nous
+          </h3>
           <Form {...form}>
             <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-8">
               <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
@@ -595,10 +722,10 @@ export default function Home() {
                     <FormItem>
                       <FormLabel>First name</FormLabel>
                       <FormControl>
-                        <Input 
-                          placeholder="Enter your first name" 
+                        <Input
+                          placeholder="Enter your first name"
                           className="px-6 py-4 rounded-lg bg-[#0A2F85] border border-[#2bf7d5]/20 focus:outline-none focus:border-[#2bf7d5]"
-                          {...field} 
+                          {...field}
                         />
                       </FormControl>
                       <FormMessage />
@@ -612,10 +739,10 @@ export default function Home() {
                     <FormItem>
                       <FormLabel>Last name</FormLabel>
                       <FormControl>
-                        <Input 
-                          placeholder="Enter your last name" 
+                        <Input
+                          placeholder="Enter your last name"
                           className="px-6 py-4 rounded-lg bg-[#0A2F85] border border-[#2bf7d5]/20 focus:outline-none focus:border-[#2bf7d5]"
-                          {...field} 
+                          {...field}
                         />
                       </FormControl>
                       <FormMessage />
@@ -632,11 +759,11 @@ export default function Home() {
                     <FormItem>
                       <FormLabel>Email</FormLabel>
                       <FormControl>
-                        <Input 
+                        <Input
                           type="email"
-                          placeholder="Enter your email" 
+                          placeholder="Enter your email"
                           className="px-6 py-4 rounded-lg bg-[#0A2F85] border border-[#2bf7d5]/20 focus:outline-none focus:border-[#2bf7d5]"
-                          {...field} 
+                          {...field}
                         />
                       </FormControl>
                       <FormMessage />
@@ -650,11 +777,11 @@ export default function Home() {
                     <FormItem>
                       <FormLabel>Phone number</FormLabel>
                       <FormControl>
-                        <Input 
+                        <Input
                           type="tel"
-                          placeholder="Enter your phone number" 
+                          placeholder="Enter your phone number"
                           className="px-6 py-4 rounded-lg bg-[#0A2F85] border border-[#2bf7d5]/20 focus:outline-none focus:border-[#2bf7d5]"
-                          {...field} 
+                          {...field}
                         />
                       </FormControl>
                       <FormMessage />
@@ -669,18 +796,46 @@ export default function Home() {
                 render={({ field }) => (
                   <FormItem>
                     <FormLabel>Subject</FormLabel>
-                    <Select onValueChange={field.onChange} defaultValue={field.value}>
+                    <Select
+                      onValueChange={field.onChange}
+                      defaultValue={field.value}
+                    >
                       <FormControl>
                         <SelectTrigger className="px-6 py-4 rounded-lg bg-[#0A2F85] border border-[#2bf7d5]/20 focus:outline-none focus:border-[#2bf7d5]">
                           <SelectValue placeholder="Select one..." />
                         </SelectTrigger>
                       </FormControl>
                       <SelectContent className="bg-[#0A2F85] border border-[#2bf7d5]/20 text-white rounded-lg p-2 shadow-lg">
-                        <SelectItem value="general" className="hover:bg-[#06286F] focus:bg-[#06286F] py-2 cursor-pointer">General Inquiry</SelectItem>
-                        <SelectItem value="sponsorship" className="hover:bg-[#06286F] focus:bg-[#06286F] py-2 cursor-pointer">Sponsorship</SelectItem>
-                        <SelectItem value="tickets" className="hover:bg-[#06286F] focus:bg-[#06286F] py-2 cursor-pointer">Tickets</SelectItem>
-                        <SelectItem value="speaker" className="hover:bg-[#06286F] focus:bg-[#06286F] py-2 cursor-pointer">Speaker</SelectItem>
-                        <SelectItem value="other" className="hover:bg-[#06286F] focus:bg-[#06286F] py-2 cursor-pointer">Other</SelectItem>
+                        <SelectItem
+                          value="general"
+                          className="hover:bg-[#06286F] focus:bg-[#06286F] py-2 cursor-pointer"
+                        >
+                          General Inquiry
+                        </SelectItem>
+                        <SelectItem
+                          value="sponsorship"
+                          className="hover:bg-[#06286F] focus:bg-[#06286F] py-2 cursor-pointer"
+                        >
+                          Sponsorship
+                        </SelectItem>
+                        <SelectItem
+                          value="tickets"
+                          className="hover:bg-[#06286F] focus:bg-[#06286F] py-2 cursor-pointer"
+                        >
+                          Tickets
+                        </SelectItem>
+                        <SelectItem
+                          value="speaker"
+                          className="hover:bg-[#06286F] focus:bg-[#06286F] py-2 cursor-pointer"
+                        >
+                          Speaker
+                        </SelectItem>
+                        <SelectItem
+                          value="other"
+                          className="hover:bg-[#06286F] focus:bg-[#06286F] py-2 cursor-pointer"
+                        >
+                          Other
+                        </SelectItem>
                       </SelectContent>
                     </Select>
                     <FormMessage />
@@ -707,10 +862,16 @@ export default function Home() {
                             "Third choice",
                             "Fourth choice",
                             "Fifth choice",
-                            "Other"
+                            "Other",
                           ].map((choice) => (
-                            <div key={choice} className="flex items-center space-x-3">
-                              <RadioGroupItem value={choice} className="text-[#2bf7d5]" />
+                            <div
+                              key={choice}
+                              className="flex items-center space-x-3"
+                            >
+                              <RadioGroupItem
+                                value={choice}
+                                className="text-[#2bf7d5]"
+                              />
                               <label>{choice}</label>
                             </div>
                           ))}
@@ -755,7 +916,10 @@ export default function Home() {
                     </FormControl>
                     <div className="space-y-1 leading-none">
                       <label className="text-sm font-medium leading-none peer-disabled:cursor-not-allowed peer-disabled:opacity-70">
-                        I accept the <a href="#" className="text-[#2bf7d5] hover:underline">Terms</a>
+                        I accept the{" "}
+                        <a href="#" className="text-[#2bf7d5] hover:underline">
+                          Terms
+                        </a>
                       </label>
                     </div>
                     <FormMessage />
@@ -781,56 +945,84 @@ export default function Home() {
 
         {/* FAQ Section */}
         <div className="max-w-8xl mx-auto" id="faqs">
-          <h3 className="text-xl md:text-2xl font-semibold mb-8">Questions Fréquentes</h3>
+          <h3 className="text-xl md:text-2xl font-semibold mb-8">
+            Questions Fréquentes
+          </h3>
           <Accordion type="single" collapsible className="space-y-4">
-            <AccordionItem value="item-1" className="bg-[#0A2F85] rounded-lg border-none px-6">
+            <AccordionItem
+              value="item-1"
+              className="bg-[#0A2F85] rounded-lg border-none px-6"
+            >
               <AccordionTrigger className="text-left [&>svg]:text-[#2bf7d5]">
                 Qu'est-ce que la Conférence Ethereum Afrique Francophone ?
               </AccordionTrigger>
               <AccordionContent className="text-gray-300">
-                La Conférence Ethereum Afrique Francophone est un événement majeur qui rassemble les acteurs de l'écosystème blockchain en Afrique francophone. Elle vise à promouvoir l'adoption et le développement de la technologie Ethereum dans la région.
+                La Conférence Ethereum Afrique Francophone est un événement
+                majeur qui rassemble les acteurs de l'écosystème blockchain en
+                Afrique francophone. Elle vise à promouvoir l'adoption et le
+                développement de la technologie Ethereum dans la région.
               </AccordionContent>
             </AccordionItem>
 
-            <AccordionItem value="item-2" className="bg-[#0A2F85] rounded-lg border-none px-6">
+            <AccordionItem
+              value="item-2"
+              className="bg-[#0A2F85] rounded-lg border-none px-6"
+            >
               <AccordionTrigger className="text-left [&>svg]:text-[#2bf7d5]">
                 Comment puis-je participer à l'événement ?
               </AccordionTrigger>
               <AccordionContent className="text-gray-300">
-                Vous pouvez participer en achetant un billet via notre section billetterie. Nous proposons différentes options de tickets adaptées à vos besoins : Standard, VIP, et accès Hackathon.
+                Vous pouvez participer en achetant un billet via notre section
+                billetterie. Nous proposons différentes options de tickets
+                adaptées à vos besoins : Standard, VIP, et accès Hackathon.
               </AccordionContent>
             </AccordionItem>
 
-            <AccordionItem value="item-3" className="bg-[#0A2F85] rounded-lg border-none px-6">
+            <AccordionItem
+              value="item-3"
+              className="bg-[#0A2F85] rounded-lg border-none px-6"
+            >
               <AccordionTrigger className="text-left [&>svg]:text-[#2bf7d5]">
                 Quelles sont les opportunités de sponsoring ?
               </AccordionTrigger>
               <AccordionContent className="text-gray-300">
-                Nous proposons plusieurs packages de sponsoring, du Partner Sponsor au Diamond Sponsor. Chaque niveau offre des avantages uniques et une visibilité adaptée. Consultez notre section sponsoring pour plus de détails.
+                Nous proposons plusieurs packages de sponsoring, du Partner
+                Sponsor au Diamond Sponsor. Chaque niveau offre des avantages
+                uniques et une visibilité adaptée. Consultez notre section
+                sponsoring pour plus de détails.
               </AccordionContent>
             </AccordionItem>
 
-            <AccordionItem value="item-4" className="bg-[#0A2F85] rounded-lg border-none px-6">
+            <AccordionItem
+              value="item-4"
+              className="bg-[#0A2F85] rounded-lg border-none px-6"
+            >
               <AccordionTrigger className="text-left [&>svg]:text-[#2bf7d5]">
                 Y aura-t-il des opportunités de networking ?
               </AccordionTrigger>
               <AccordionContent className="text-gray-300">
-                Oui, l'événement comprend de nombreuses sessions de networking, des ateliers interactifs et des moments d'échange informels pour faciliter les connexions entre participants.
+                Oui, l'événement comprend de nombreuses sessions de networking,
+                des ateliers interactifs et des moments d'échange informels pour
+                faciliter les connexions entre participants.
               </AccordionContent>
             </AccordionItem>
 
-            <AccordionItem value="item-5" className="bg-[#0A2F85] rounded-lg border-none px-6">
+            <AccordionItem
+              value="item-5"
+              className="bg-[#0A2F85] rounded-lg border-none px-6"
+            >
               <AccordionTrigger className="text-left [&>svg]:text-[#2bf7d5]">
                 Comment puis-je devenir speaker ?
               </AccordionTrigger>
               <AccordionContent className="text-gray-300">
-                Pour devenir speaker, veuillez nous contacter via le formulaire de contact en sélectionnant "Speaker" comme sujet. Notre équipe examinera votre proposition et vous recontactera.
+                Pour devenir speaker, veuillez nous contacter via le formulaire
+                de contact en sélectionnant "Speaker" comme sujet. Notre équipe
+                examinera votre proposition et vous recontactera.
               </AccordionContent>
             </AccordionItem>
           </Accordion>
         </div>
       </section>
     </div>
-    
   );
 }
