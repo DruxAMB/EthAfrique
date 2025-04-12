@@ -70,23 +70,59 @@ export default function Home() {
 
   const timelineData = [
     {
-      title: "Pré-événement",
-      description: "7 jours - Workshops en ligne, mentorat, Hackathon",
+      title: "Pré-événement (1 Month Before)",
+      subEvents: [
+        {
+          day: "Online Workshops",
+          description: "Web3 training for developers",
+        },
+        {
+          day: "Mentorship Sessions",
+          description: "Coaching for blockchain startups and entrepreneurs",
+        },
+        {
+          day: "Meetups",
+          description:
+            "Meetups in various countries before the conference: Togo, Benin, Senegal, Ivory Coast, Cameroon and Gabon",
+        },
+
+        {
+          day: "Campus Tour",
+        },
+
+        {
+          day: "Marketing",
+          description:
+            "Marketing and partnerships with contributors from different countries for strong engagement",
+        },
+      ],
+    },
+    {
+      title: "Hackathon & Workshops - 3 Days",
+      subEvents: [
+        {
+          day: "Day 1",
+          description: "Hackathon Kickoff: Introduction of themes and partners",
+        },
+        {
+          day: "Day 2",
+          description:
+            "Development & Mentorship: Teams receive guidance from experts",
+        },
+
+        {
+          day: "Day 3",
+          description: "Project Pitches: Presentation of developed solutions",
+        },
+      ],
     },
     {
       title: "Conférence principale",
       subEvents: [
         {
-          day: "Jour 1",
-          description: "Keynotes, panels sur la gouvernance décentralisée",
-        },
-        {
-          day: "Jour 2",
-          description: "Ateliers techniques, pitches startups",
-        },
-        {
-          day: "Jour 3",
-          description: "Networking, intervention des BEOs, remise des prix",
+          day: "Day 4",
+          description:
+            "Opening conferences, Keynotes from Web3 leaders, Panels on decentralized governance, Technical workshops, Startup pitch sessions, Networking sessions, Speaker interventions, Roundtables on financial inclusion, Announcement of hackathon winners and prize distribution, Closing and Web3 ecosystem roadmap for Africa",
         },
       ],
     },
@@ -382,10 +418,8 @@ export default function Home() {
 
           <div className="text-start w-full md:w-[45%] p-2 md:p-5">
             <p className="text-justify my-5 leading-8 ">
-             
-            ETH Afrique Conf is already generating strong interest within
-                the blockchain community. Several factors explain this
-                enthusiasm.
+              ETH Afrique Conf is already generating strong interest within the
+              blockchain community. Several factors explain this enthusiasm.
             </p>
             <p className="text-justify my-5 leading-8 ">
               A First in Francophone Africa: This event is unique and addresses
@@ -409,7 +443,10 @@ export default function Home() {
             <div className="rounded-xl bg-[#0f2757] px-5 py-10">
               <h2 className="text-2xl md:4xl font-bold">Excitement</h2>
               <p className="my-5 leading-10 text-justify">
-              ETH Afrique Conf is a must-attend initiative for the future of the blockchain ecosystem in Francophone Africa. It meets a pressing demand for information, training, and collaboration for massive and inclusive Ethereum adoption.
+                ETH Afrique Conf is a must-attend initiative for the future of
+                the blockchain ecosystem in Francophone Africa. It meets a
+                pressing demand for information, training, and collaboration for
+                massive and inclusive Ethereum adoption.
               </p>
             </div>
           </div>
@@ -443,17 +480,6 @@ export default function Home() {
                   </h3>
 
                   {/* Event Content */}
-                  {event.description ? (
-                    <div className="ml-16 bg-[#0A2F85] rounded-2xl p-6 border border-[#2bf7d5]/20">
-                      <h4 className="text-xl font-bold mb-2">
-                        {event.description.split(" - ")[0]}
-                      </h4>
-                      <p className="text-gray-300">
-                        {event.description.split(" - ")[1]}
-                      </p>
-                    </div>
-                  ) : null}
-
                   {event.subEvents && (
                     <div className="ml-16 space-y-4 mt-4">
                       {event.subEvents.map((subEvent, subIndex) => (
