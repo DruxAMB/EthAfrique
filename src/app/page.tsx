@@ -3,15 +3,15 @@ import Image from "next/image";
 import Afrique from '../../public/images/afrique.png'
 import { cn } from "./lib/utils";
 import { Button } from "./components/ui/button";
-import { Play, ChevronDown, ChevronUp } from "lucide-react";
+import { Play } from "lucide-react";
 import Testimonials from '../../public/images/testimonials.png'
-import contentImg from '../../public/images/content-image.png'
+import contentImg from '../../public/images/conference.png'
 import agendaImg from '../../public/images/agenda-image.png'
 import { useState } from "react";
 import rightArrow from '../../public/images/right-arrow.svg'
 import leftArrow from '../../public/images/left-arrow.svg'
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "./components/ui/accordion";
-import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from "./components/ui/card";
+import { Card, CardContent, CardHeader, CardTitle } from "./components/ui/card";
 import { useForm } from "react-hook-form";
 import { Form, FormControl, FormField, FormItem, FormLabel, FormMessage } from "./components/ui/form";
 import { Input } from "./components/ui/input";
@@ -25,7 +25,6 @@ import { Textarea } from "./components/ui/textarea";
 
 export default function Home() {
   const [currentSpeakerPage, setCurrentSpeakerPage] = useState(0);
-  const [isSelectOpen, setIsSelectOpen] = useState(false);
 
   const partners = [
     { name: "Deliveroo", image: "/images/deliveroo.svg" },
@@ -236,8 +235,8 @@ export default function Home() {
         {/* write up section */}
         <div className="flex flex-col md:flex-row items-center justify-between m-5 md:m-10">
           <div className="text-start w-full md:w-[50%] p-2 md:p-5">
-            <p className="text-justify my-5 leading-8 ">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean scelerisque gravida tempus. Pellentesque odio purus, dapibus ut rutrum at, mollis sit amet eros. Nulla non tortor nec elit lacinia consectetur.</p>
-            <p className="text-justify my-5 leading-8">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean scelerisque gravida tempus. Pellentesque odio purus, dapibus ut rutrum at, mollis sit amet eros. Nulla non tortor nec elit lacinia consectetur.</p>
+            <p className="text-justify my-5 leading-8 ">A global event bringing together experts, innovators, startups, investors, and enthusiasts to strengthen blockchain and Web3 adoption while highlighting the potential of the Francophone ecosystem on the international stage.</p>
+            <p className="text-justify my-5 leading-8">The conference will unite ETH communities from Togo, Benin, Ivory Coast, Senegal, Cameroon, and Burkina Faso to spotlight the Francophone ecosystem—while also recognizing the vital inspiration from Anglophone countries.</p>
             <Button  className={cn(
                 "bg-[#2bf7d5] w-full md:w-1/2",
                 "text-[#06286f]  px-8 py-6 text-lg rounded-lg cursor-pointer",
