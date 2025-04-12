@@ -6,7 +6,7 @@ import { Button } from "./components/ui/button";
 import { Play } from "lucide-react";
 import Testimonials from "../../public/images/testimonials.png";
 import contentImg from "../../public/images/conference.png";
-import workshopImg from "../../public/images/workshop.png";
+import workshopImg from "../../public/images/agenda-image.png";
 import timelineImg from "../../public/images/timeline.png";
 import timelineImg2 from "../../public/images/timeline2.png";
 import { useState } from "react";
@@ -508,7 +508,7 @@ export default function Home() {
               </div>
 
               {/* Timeline Image */}
-              <div className="w-full md:w-1/2 rounded-3xl overflow-hidden">
+              <div className="w-full md:w-1/2 rounded-3xl overflow-hidden md:mt-12">
                 {index === 0 && (
                   <Image
                     src={workshopImg}
